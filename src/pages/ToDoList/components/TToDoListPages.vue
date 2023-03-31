@@ -1,10 +1,10 @@
 <script setup>
-import { TField } from '@/components/Field';
+import { TCard } from '@/components/Card';
 </script>
 
 <template>
   <main class="t-toDoList-page">
-    <TField />
+    <TCard />
   </main>
 </template>
 

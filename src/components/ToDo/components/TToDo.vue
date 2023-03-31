@@ -1,4 +1,15 @@
-<script setup> </script>
+<script setup>
+defineProps({
+  title: {
+    type: String,
+    required: true,
+  },
+  coption: {
+    type: String,
+  },
+});
+
+</script>
 
 <template>
   <div class="t-toDo">
@@ -13,8 +24,8 @@
       class="t-toDo__label"
     >
       <div class="t-toDo__text">
-        <span class="t-toDo__title">delectus aut autem</span>
-        <span class="t-toDo__caption">laboriosam mollitia et enim quasi adipisci quia provident illum</span>
+        <span class="t-toDo__title">{{ title }}</span>
+        <span class="t-toDo__caption">{{ coption }}</span>
       </div>
     </label>
   </div>

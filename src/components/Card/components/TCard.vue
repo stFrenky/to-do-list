@@ -1,40 +1,20 @@
 <script setup>
 import TBtn from './TBtn.vue';
 import TToDo from '@/components/ToDo/components/TToDo.vue';
+import { TToDoList } from '@/components/ToDoList/components';
+
 </script>
 
 <template>
   <div class="wrapper">
-    <div class="t-field">
-      <div class="t-field__header">
-        <div class="t-field__title">
+    <div class="t-card">
+      <div class="t-card__header">
+        <div class="t-card__title">
           ToDo list
         </div>
         <TBtn />
       </div>
-      <div class="t-field__toDo-list">
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-        <TToDo />
-      </div>
+      <TToDoList />
     </div>
   </div>
 </template>
@@ -43,6 +23,7 @@ import TToDo from '@/components/ToDo/components/TToDo.vue';
   .wrapper {
     position: relative;
     max-width: 420px;
+    width: 100%;
     margin: 0 auto;
 
     @media (max-width: 430px) {
@@ -91,7 +72,7 @@ import TToDo from '@/components/ToDo/components/TToDo.vue';
     }
   }
 
-  .t-field {
+  .t-card {
     box-sizing: border-box;
     position: relative;
     padding: 30px;
@@ -100,7 +81,7 @@ import TToDo from '@/components/ToDo/components/TToDo.vue';
     background-color: $card-bg;
     color: $white;
     z-index: 2;
-    overflow-y: hidden;
+    overflow: hidden;
 
     &:after {
       content: '';
@@ -128,6 +109,7 @@ import TToDo from '@/components/ToDo/components/TToDo.vue';
 
     &__toDo-list {
       overflow-y: scroll;
+      overflow-x: hidden;
       height: 100%;
 
       &::-webkit-scrollbar {

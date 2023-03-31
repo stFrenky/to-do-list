@@ -1,0 +1,1 @@
+export { TCard } from './components';
