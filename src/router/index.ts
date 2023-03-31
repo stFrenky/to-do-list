@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// @ts-ignore
 import { TToDoListPages } from '@/pages/ToDoList';
 
 const router = createRouter({

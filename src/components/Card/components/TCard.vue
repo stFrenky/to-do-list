@@ -1,7 +1,7 @@
 <script setup>
 import TBtn from './TBtn.vue';
-import TToDo from '@/components/ToDo/components/TToDo.vue';
-import { TToDoList } from '@/components/ToDoList/components';
+import { TList } from '@/components/List';
+import { TModal } from '@/components/Modal';
 
 </script>
 
@@ -14,7 +14,8 @@ import { TToDoList } from '@/components/ToDoList/components';
         </div>
         <TBtn />
       </div>
-      <TToDoList />
+      <TModal />
+      <TList />
     </div>
   </div>
 </template>

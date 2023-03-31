@@ -1,1 +1,1 @@
-import { TToDo } from './components';
+export { TToDo } from './components';

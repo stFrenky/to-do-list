@@ -1,5 +1,5 @@
-<script>
-import { TToDo } from '@/components/ToDo/components/TToDo.vue';
+<script setup>
+import { TToDo } from '@/components/ToDo';
 </script>
 
 <template>
