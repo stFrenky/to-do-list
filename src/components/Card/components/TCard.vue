@@ -35,8 +35,8 @@ const add = () => {
 </script>
 
 <template>
-  <div class="wrapper">
-    <div class="t-card">
+  <div class="t-card">
+    <div class="t-card__inner">
       <div class="t-card__header">
         <div class="t-card__title">
           ToDo list
@@ -58,11 +58,8 @@ const add = () => {
 </template>
 
 <style lang="scss">
-  .wrapper {
+  .t-card {
     position: relative;
-    max-width: 420px;
-    width: 100%;
-    margin: 0 auto;
 
     @media (max-width: 430px) {
       max-width: 400px;
@@ -74,9 +71,10 @@ const add = () => {
       width: 100%;
       max-width: 395px;
       height: 67px;
-      top: -27px;
+      top: -20px;
       left: 0;
       z-index: 1;
+      transition: all .3s;
 
       background: linear-gradient(180deg, #31394D 0%, #091739 100%);
       border-radius: 20px;
@@ -98,7 +96,8 @@ const add = () => {
       max-width: 341px;
       height: 85px;
       left: 0;
-      top: -47px;
+      top: -30px;
+      transition: all .3s;
 
       background: linear-gradient(180deg, #4F5565 0%, #000000 53.65%);
       border-radius: 20px;
@@ -108,27 +107,39 @@ const add = () => {
         max-width: 284px;
       }
     }
-  }
 
-  .t-card {
-    box-sizing: border-box;
-    position: relative;
-    padding: 30px;
-    width: 100%;
-    height: 580px;
-    background-color: $card-bg;
-    color: $white;
-    z-index: 2;
-    overflow: hidden;
+    &:hover {
+      &:before {
+        top: -30px;
+      }
 
-    &:after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 30px;
-      width: 360px;
-      height: 75px;
-      background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252E42 67.19%);
+      &:after {
+        top: -50px;
+      }
+    }
+
+    &__inner {
+      box-sizing: border-box;
+      position: relative;
+      padding: 30px;
+      width: 100%;
+      height: 540px;
+      background-color: $card-bg;
+      color: $white;
+      z-index: 2;
+      border-radius: 20px 0 40px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 1px;
+        left: 30px;
+        max-width: 80%;
+        width: 100%;
+        height: 75px;
+        background: linear-gradient(180deg, rgba(37, 46, 66, 0) 0%, #252E42 67.19%);
+      }
+
     }
 
     &__header {
@@ -138,26 +149,11 @@ const add = () => {
     }
 
     &__title {
-      font-family: 'Montserrat-Bold';
+      font-family: 'Montserrat-Bold',serif;
       font-weight: 700;
       font-size: 28px;
       line-height: 34px;
       color: $white;
-    }
-
-    &__toDo-list {
-      overflow-y: scroll;
-      overflow-x: hidden;
-      height: 100%;
-
-      &::-webkit-scrollbar {
-        width: 4px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: $accent;
-        border-radius: 10px;
-      }
     }
   }
 </style>

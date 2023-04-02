@@ -9,7 +9,7 @@ const { toDos } = storeToRefs(toDoStore);
 </script>
 
 <template>
-  <div class="t-card__toDo-list">
+  <div class="t-toDo-list">
     <TToDo
       v-for="toDo in toDos"
       :id="toDo.id"
@@ -20,3 +20,20 @@ const { toDos } = storeToRefs(toDoStore);
     />
   </div>
 </template>
+
+<style lang="scss">
+.t-toDo-list {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 450px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $accent;
+    border-radius: 10px;
+  }
+}
+</style>

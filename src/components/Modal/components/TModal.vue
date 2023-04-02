@@ -42,7 +42,6 @@ const description = useModelWrapper(props, emit, 'description');
   left: 0;
   padding: 30px;
   width: 100%;
-  height: 100%;
   background-color: $card-bg;
   color: $white;
   flex-direction: column;
@@ -53,12 +52,14 @@ const description = useModelWrapper(props, emit, 'description');
     background-color: $main-bg;
     border-radius: 10px;
     padding-left: 10px;
+    padding-right: 10px;
     color: $white;
     display: flex;
     align-items: center;
     font-size: 18px;
     input {
       all: unset;
+      width: 100%;
     }
   }
 

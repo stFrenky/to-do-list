@@ -31,6 +31,7 @@ const done = useModelWrapper(props, emit, 'done');
         <span
           :class="{
             't-toDo__line-through': done,
+            't-toDo__title-hover': done,
           }"
           class="t-toDo__title"
         >{{ title }}
@@ -50,6 +51,7 @@ const done = useModelWrapper(props, emit, 'done');
   .t-toDo {
     padding-top: 9px;
     padding-bottom: 9px;
+    z-index: 3;
 
     &__checkbox {
       position: absolute;
@@ -88,7 +90,7 @@ const done = useModelWrapper(props, emit, 'done');
     }
 
     &__title {
-      font-family: 'Montserrat-Medium';
+      font-family: 'Montserrat-Medium',serif;
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
@@ -110,6 +112,13 @@ const done = useModelWrapper(props, emit, 'done');
 
     &__line-through {
       text-decoration: line-through;
+      color: $checkbox-bg;
+    }
+
+    &__title-hover {
+      &:hover {
+        color: $white;
+      }
     }
   }
 </style>
