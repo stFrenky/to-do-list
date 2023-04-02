@@ -1,15 +1,32 @@
-<script setup></script>
+<script setup lang="ts">
+import { useModelWrapper } from '@/composables';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const props = defineProps<Props>();
+
+const emit = defineEmits(['update:title', 'update:description']);
+
+const title = useModelWrapper(props, emit, 'title');
+const description = useModelWrapper(props, emit, 'description');
+
+</script>
 
 <template>
   <div class="t-modal">
     <div class="t-modal__new-toDo">
       <input
+        v-model="title"
         type="text"
         placeholder="New ToDo"
       >
     </div>
     <div class="t-modal__placeholder">
       <input
+        v-model="description"
         type="text"
         placeholder="Placeholder"
       >
@@ -19,9 +36,7 @@
 
 <style lang="scss">
 .t-modal {
-
-  display: none !important;
-
+  display: none;
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -30,7 +45,6 @@
   height: 100%;
   background-color: $card-bg;
   color: $white;
-  display: flex;
   flex-direction: column;
   gap: 15px;
 
@@ -47,5 +61,10 @@
       all: unset;
     }
   }
+
+  &.show {
+    display: flex;
+  }
 }
+
 </style>

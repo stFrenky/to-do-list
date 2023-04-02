@@ -3,34 +3,21 @@ import type { ToDoState } from './models';
 
 export const useToDoStore = defineStore('toDo', {
   state: () => <ToDoState>({
-    toDos: [
-      {
-        title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        dane: false,
-        id: 1,
-      },
-      {
-        title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        dane: false,
-        id: 2,
-      },
-      {
-        title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        dane: false,
-        id: 3,
-      },
-      {
-        title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-        dane: false,
-        id: 1,
-      },
-    ],
+    toDos: [],
   }),
+  getters: {
+    lastToDoId(): number | undefined {
+      return this.toDos[this.toDos.length - 1] && this.toDos[this.toDos.length - 1].id + 1;
+    },
+  },
   actions: {
-
+    addToDo(title: string, description: string) {
+      this.toDos.push({
+        title,
+        description,
+        id: this.lastToDoId ?? 1,
+        done: false,
+      });
+    },
   },
 });

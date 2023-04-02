@@ -1,29 +1,46 @@
 <script setup lang="ts">
+import { useModelWrapper } from '@/composables';
 
 interface Props {
   title: string;
   description?: string;
+  done: boolean;
+  id: number;
 }
 
 const props = defineProps<Props>();
+const emit = defineEmits(['update:done']);
 
+const done = useModelWrapper(props, emit, 'done');
 </script>
 
 <template>
   <div class="t-toDo">
     <input
-      id="scales"
+      :id="id"
+      v-model="done"
       type="checkbox"
       class="t-toDo__checkbox"
     >
 
     <label
-      for="scales"
+      :for="id"
       class="t-toDo__label"
     >
       <div class="t-toDo__text">
-        <span class="t-toDo__title">{{ title }}</span>
-        <span class="t-toDo__description">{{ description }}</span>
+        <span
+          :class="{
+            't-toDo__line-through': done,
+          }"
+          class="t-toDo__title"
+        >{{ title }}
+        </span>
+        <span
+          :class="{
+            't-toDo__line-through': done,
+          }"
+          class="t-toDo__description"
+        >{{ description }}</span>
       </div>
     </label>
   </div>
@@ -89,6 +106,10 @@ const props = defineProps<Props>();
       font-size: 12px;
       line-height: 15px;
       color: $checkbox-bg;
+    }
+
+    &__line-through {
+      text-decoration: line-through;
     }
   }
 </style>

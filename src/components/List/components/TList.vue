@@ -12,7 +12,9 @@ const { toDos } = storeToRefs(toDoStore);
   <div class="t-card__toDo-list">
     <TToDo
       v-for="toDo in toDos"
+      :id="toDo.id"
       :key="toDo.id"
+      v-model:done="toDo.done"
       :title="toDo.title"
       :description="toDo.description"
     />

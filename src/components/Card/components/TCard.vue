@@ -1,7 +1,36 @@
 <script setup>
+import { ref, reactive } from 'vue';
 import TBtn from './TBtn.vue';
 import { TList } from '@/components/List';
 import { TModal } from '@/components/Modal';
+import { useToDoStore } from '@/stores/ToDo';
+
+const toDoStore = useToDoStore();
+
+const { addToDo } = toDoStore;
+
+const mode = ref('view');
+
+const newToDo = reactive({
+  title: '',
+  description: '',
+});
+const add = () => {
+  if (mode.value === 'view') {
+    mode.value = 'edit';
+
+    return;
+  }
+
+  if (!newToDo.title) return;
+
+  mode.value = 'view';
+
+  addToDo(newToDo.title, newToDo.description);
+
+  newToDo.title = '';
+  newToDo.description = '';
+};
 
 </script>
 
@@ -12,9 +41,17 @@ import { TModal } from '@/components/Modal';
         <div class="t-card__title">
           ToDo list
         </div>
-        <TBtn />
+        <TBtn
+          @click="add"
+        />
       </div>
-      <TModal />
+      <TModal
+        v-model:title="newToDo.title"
+        v-model:description="newToDo.description"
+        :class="{
+          show: mode === 'edit'
+        }"
+      />
       <TList />
     </div>
   </div>
