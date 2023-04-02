@@ -1,1 +1,1 @@
-export { TToDoListPages } from './components';
+export { TToDoListPage } from './components';

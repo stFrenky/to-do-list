@@ -1,13 +1,11 @@
-<script setup>
-defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  coption: {
-    type: String,
-  },
-});
+<script setup lang="ts">
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const props = defineProps<Props>();
 
 </script>
 
@@ -25,7 +23,7 @@ defineProps({
     >
       <div class="t-toDo__text">
         <span class="t-toDo__title">{{ title }}</span>
-        <span class="t-toDo__caption">{{ coption }}</span>
+        <span class="t-toDo__description">{{ description }}</span>
       </div>
     </label>
   </div>
@@ -84,8 +82,8 @@ defineProps({
       }
     }
 
-    &__caption {
-      font-family: 'Montserrat';
+    &__description {
+      font-family: 'Montserrat',serif;
       font-style: normal;
       font-weight: 400;
       font-size: 12px;

@@ -1,5 +1,5 @@
-import TToDoListPages from './TToDoListPages.vue';
+import TToDoListPage from './TToDoListPage.vue';
 
 export {
-  TToDoListPages,
+  TToDoListPage,
 };
