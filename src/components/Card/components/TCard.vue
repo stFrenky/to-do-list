@@ -60,6 +60,7 @@ const add = () => {
 <style lang="scss">
   .t-card {
     position: relative;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
     @media (max-width: 430px) {
       max-width: 400px;
@@ -128,6 +129,7 @@ const add = () => {
       color: $white;
       z-index: 2;
       border-radius: 20px 0 40px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);;
 
       &:after {
         content: '';
