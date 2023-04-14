@@ -65,7 +65,8 @@ import { TCard } from '@/components/Card';
       color: $copy-right;
       text-align: center;
       margin-top: 30px;
-      z-index: 3;
+      z-index: 1;
+      position: relative;
     }
   }
 </style>
