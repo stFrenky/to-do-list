@@ -9,8 +9,8 @@
 
 <style lang="scss">
   .t-btn {
-    width: 54px;
-    height: 27px;
+    min-width: 54px;
+    min-height: 27px;
     background-color: $accent;
     border-radius: 7px;
     text-transform: uppercase;
