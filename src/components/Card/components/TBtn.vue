@@ -16,6 +16,7 @@
     text-transform: uppercase;
     border: none;
     color: $white;
+    cursor: pointer;
 
     &:hover {
       background-color: $hover-accent;
